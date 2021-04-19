@@ -37,4 +37,6 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+  //tessearct 사용하기 위해서implement
+    implementation 'com.rmtheis:tess-two:9.1.0'
 }

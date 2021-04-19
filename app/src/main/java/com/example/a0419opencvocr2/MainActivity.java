@@ -23,7 +23,6 @@ import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.Point;
-import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.android.CameraBridgeViewBase;
@@ -39,12 +38,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.speech.tts.TextToSpeech;
-import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
-import android.view.View.OnTouchListener;
 import android.view.SurfaceView;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -59,7 +53,9 @@ import com.example.a0419opencvocr2.utils.OCR7SegmentImageEnhacementImpl;
 import com.example.a0419opencvocr2.utils.OCR7SegmentRoiDetection;
 import com.example.a0419opencvocr2.utils.OCR7SegmentRoiDetectionImpl;
 
-public class OCR7SegmentActivity extends Activity implements CvCameraViewListener2,TextToSpeech.OnInitListener {
+
+
+public class Mainactivity extends Activity implements CvCameraViewListener2,TextToSpeech.OnInitListener {
 
 
     private static final String TAG = "OCVSample::Activity";
@@ -95,7 +91,7 @@ public class OCR7SegmentActivity extends Activity implements CvCameraViewListene
         }
     };
 
-    public OCR7SegmentActivity() {
+    public Mainactivity() {
         //Log.i(TAG, "Instantiated new " + this.getClass());
     }
 
@@ -122,20 +118,20 @@ public class OCR7SegmentActivity extends Activity implements CvCameraViewListene
         mOpenCvCameraView.setCvCameraViewListener(this);
 
         /*Check the permissions, in case any were not set, set it and reboot the activity*/
-        if (ContextCompat.checkSelfPermission(OCR7SegmentActivity.this,
+        if (ContextCompat.checkSelfPermission(Mainactivity.this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(OCR7SegmentActivity.this,
+            ActivityCompat.requestPermissions(Mainactivity.this,
                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     1);
             rebootapp = true;
 
         }
 
-        if (ContextCompat.checkSelfPermission(OCR7SegmentActivity.this,
+        if (ContextCompat.checkSelfPermission(Mainactivity.this,
                 Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(OCR7SegmentActivity.this,
+            ActivityCompat.requestPermissions(Mainactivity.this,
                     new String[]{Manifest.permission.CAMERA},
                     1);
             rebootapp = true;
@@ -190,7 +186,7 @@ public class OCR7SegmentActivity extends Activity implements CvCameraViewListene
         speak("Cargada interfaz de voz a español");
 
         if(rebootapp)
-            OCR7SegmentActivity.this.finish();
+            Mainactivity.this.finish();
     }
 
     @Override

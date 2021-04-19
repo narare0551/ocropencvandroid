@@ -1,3 +1,4 @@
 include ':app'
 rootProject.name = "0419opencvocr2"
 include ':openCVLibrary346'
+include ':libraries:tess-two'
